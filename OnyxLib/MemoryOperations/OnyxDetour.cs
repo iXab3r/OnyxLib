@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-using Bea;
+using BeaEngine.Net;
 
 using OnyxLib.Extensions;
 

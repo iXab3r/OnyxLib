@@ -39,6 +39,9 @@
     </StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BeaEngine.Net">
+      <HintPath>..\packages\BeaEngine.Net.0.9\lib\net35\BeaEngine.Net.dll</HintPath>
+    </Reference>
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
     </Reference>
@@ -102,11 +105,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Bea\Bea.csproj">
-      <Project>{5dbc213c-a37d-459b-8f43-62dea503b682}</Project>
-      <Name>Bea</Name>
-      <Private>False</Private>
-    </ProjectReference>
     <ProjectReference Include="..\FasmWrapper\FasmWrapper\FasmWrapper.csproj">
       <Project>{6039489d-5e75-4028-ac4e-695184a39cdb}</Project>
       <Name>FasmWrapper</Name>
@@ -114,9 +112,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="..\Bea\bin\Bea.dll">
-      <Link>Externals\Bea.dll</Link>
-    </EmbeddedResource>
     <EmbeddedResource Include="..\FasmWrapper\FasmWrapper\bin\FasmWrapper.dll">
       <Link>Externals\FasmWrapper.dll</Link>
     </EmbeddedResource>
