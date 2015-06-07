@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{427CFCE9-0352-477C-ACB2-744F186ADB68}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OnyxLib</RootNamespace>
+    <AssemblyName>OnyxLib</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="XMLib">
+      <HintPath>..\packages\XMLib.1.20\lib\net40\XMLib.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Communications\IOnyxLoaderContract.cs" />
+    <Compile Include="Communications\OnyxJournal.cs" />
+    <Compile Include="Communications\OnyxJournalEntry.cs" />
+    <Compile Include="Communications\OnyxRemoteClient.cs" />
+    <Compile Include="Communications\OnyxServiceHost.cs" />
+    <Compile Include="IOnyxEntryPoint.cs" />
+    <Compile Include="Extensions\ProcessModuleExtension.cs" />
+    <Compile Include="IdGenerator.cs" />
+    <Compile Include="Extensions\IntPtrExtension.cs" />
+    <Compile Include="EventLogLogger.cs" />
+    <Compile Include="Loader\LoadedDomainsList.cs" />
+    <Compile Include="Loader\OnyxLoader.cs" />
+    <Compile Include="Loader\OnyxDomain.cs" />
+    <Compile Include="Loader\OnyxLoaderEntryPoint.cs" />
+    <Compile Include="AssemblyResolver.cs" />
+    <Compile Include="Loader\ProxyDomain.cs" />
+    <Compile Include="Managers\DetourManager.cs" />
+    <Compile Include="MemoryOperations\MemoryOperation.cs" />
+    <Compile Include="MemoryOperations\MemoryOperationReversable.cs" />
+    <Compile Include="MemoryOperations\OnyxPatch.cs" />
+    <Compile Include="MemoryOperations\OnyxDetour.cs" />
+    <Compile Include="MemoryOperations\OnyxInjection.cs" />
+    <Compile Include="MemoryOperations\OnyxThreadInterceptor.cs" />
+    <Compile Include="MemoryOperations\OnyxRedirect.cs" />
+    <Compile Include="Managers\OnyxManager.cs" />
+    <Compile Include="Loader\ModuleInitializer.cs" />
+    <Compile Include="OnyxHelpers.cs" />
+    <Compile Include="OnyxMemory.cs" />
+    <Compile Include="OnyxProbe.cs" />
+    <Compile Include="Onyx.cs" />
+    <Compile Include="OnyxNative.cs" />
+    <Compile Include="OnyxSpider.cs" />
+    <Compile Include="OnyxUnmanagedBuffer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RemoteFasm.cs" />
+    <Compile Include="Snapshot\FunctionSnapshot.cs" />
+    <Compile Include="Snapshot\ProcessModuleSnapshot.cs" />
+    <Compile Include="Snapshot\ProcessSnapshot.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bea\Bea.csproj">
+      <Project>{5dbc213c-a37d-459b-8f43-62dea503b682}</Project>
+      <Name>Bea</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\FasmWrapper\FasmWrapper\FasmWrapper.csproj">
+      <Project>{6039489d-5e75-4028-ac4e-695184a39cdb}</Project>
+      <Name>FasmWrapper</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\Bea\bin\Bea.dll">
+      <Link>Externals\Bea.dll</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\FasmWrapper\FasmWrapper\bin\FasmWrapper.dll">
+      <Link>Externals\FasmWrapper.dll</Link>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\packages\log4net.2.0.3\lib\net40-full\log4net.dll">
+      <Link>Externals\log4net.dll</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\packages\XMLib.1.20\lib\net40\XMLib.dll">
+      <Link>Externals\XMLib.dll</Link>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="InjectModuleInitializer" AfterTargets="AfterBuild">
+    <Exec Command="..\packages\InjectModuleInitializer.1.3.1\tools\InjectModuleInitializer.exe &quot;$(TargetPath)&quot;" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
